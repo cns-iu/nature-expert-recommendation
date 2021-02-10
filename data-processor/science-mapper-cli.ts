@@ -75,8 +75,8 @@ const files = [
 
 let allData = [];
 for (const f of files) {
-  const output = scienceMapCSV(`raw-data/${f}`, `../website/data/${f.replace('_tomap.csv', '')}.json`, issnFields, journalNameFields)
+  const output = scienceMapCSV(`raw-data/${f}`, `../docs/data/${f.replace('_tomap.csv', '')}.json`, issnFields, journalNameFields)
   const source = f.replace('_tomap.csv', '').replace(/_/g, ' ');
   allData = allData.concat(output.map(n => Object.assign(n, {source})));
 }
-writeJSON(allData, '../website/data/combined.json');
+writeJSON(allData, '../docs/data/combined.json');
