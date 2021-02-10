@@ -1,0 +1,32 @@
+{
+  "name": "nature-expert-recommendation",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "job": "ts-node science-mapper-cli.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@angular/common": "^11.1.2",
+    "@angular/core": "^11.1.2",
+    "@dvl-fw/core": "^0.50.1",
+    "@dvl-fw/science-map": "^0.50.1",
+    "@ngx-dino/core": "^0.11.0",
+    "@types/node": "^14.14.25",
+    "@types/papaparse": "^5.2.5",
+    "css-element-queries": "^1.2.3",
+    "js-yaml": "^4.0.0",
+    "nano-sql": "^1.8.5",
+    "ngx-vega": "^0.51.0",
+    "papaparse": "^5.3.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.4",
+    "typescript-logging": "^1.0.0",
+    "vega": "^5.19.1",
+    "vega-embed": "^6.15.1",
+    "vega-lite": "^4.17.0"
+  }
+}

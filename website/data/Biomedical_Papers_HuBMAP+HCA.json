@@ -1,0 +1,818 @@
+[
+  {
+    "year": 2017,
+    "subd_id": -1,
+    "measure": "# Citations",
+    "measureCount": 16
+  },
+  {
+    "year": 2017,
+    "subd_id": -1,
+    "measure": "# Papers",
+    "measureCount": 36
+  },
+  {
+    "year": 2018,
+    "subd_id": -1,
+    "measure": "# Citations",
+    "measureCount": 173
+  },
+  {
+    "year": 2018,
+    "subd_id": -1,
+    "measure": "# Papers",
+    "measureCount": 36
+  },
+  {
+    "year": 2019,
+    "subd_id": -1,
+    "measure": "# Citations",
+    "measureCount": 304
+  },
+  {
+    "year": 2019,
+    "subd_id": -1,
+    "measure": "# Papers",
+    "measureCount": 36
+  },
+  {
+    "year": 2020,
+    "subd_id": -1,
+    "measure": "# Citations",
+    "measureCount": 372
+  },
+  {
+    "year": 2020,
+    "subd_id": -1,
+    "measure": "# Papers",
+    "measureCount": 36
+  },
+  {
+    "year": 2017,
+    "subd_id": 1,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 1,
+    "measure": "# Papers",
+    "measureCount": 6
+  },
+  {
+    "year": 2018,
+    "subd_id": 1,
+    "measure": "# Citations",
+    "measureCount": 45
+  },
+  {
+    "year": 2018,
+    "subd_id": 1,
+    "measure": "# Papers",
+    "measureCount": 6
+  },
+  {
+    "year": 2019,
+    "subd_id": 1,
+    "measure": "# Citations",
+    "measureCount": 239
+  },
+  {
+    "year": 2019,
+    "subd_id": 1,
+    "measure": "# Papers",
+    "measureCount": 6
+  },
+  {
+    "year": 2020,
+    "subd_id": 1,
+    "measure": "# Citations",
+    "measureCount": 390
+  },
+  {
+    "year": 2020,
+    "subd_id": 1,
+    "measure": "# Papers",
+    "measureCount": 6
+  },
+  {
+    "year": 2017,
+    "subd_id": 9,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 9,
+    "measure": "# Papers",
+    "measureCount": 7
+  },
+  {
+    "year": 2018,
+    "subd_id": 9,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 9,
+    "measure": "# Papers",
+    "measureCount": 7
+  },
+  {
+    "year": 2019,
+    "subd_id": 9,
+    "measure": "# Citations",
+    "measureCount": 52
+  },
+  {
+    "year": 2019,
+    "subd_id": 9,
+    "measure": "# Papers",
+    "measureCount": 7
+  },
+  {
+    "year": 2020,
+    "subd_id": 9,
+    "measure": "# Citations",
+    "measureCount": 114
+  },
+  {
+    "year": 2020,
+    "subd_id": 9,
+    "measure": "# Papers",
+    "measureCount": 7
+  },
+  {
+    "year": 2017,
+    "subd_id": -2,
+    "measure": "# Citations",
+    "measureCount": 3
+  },
+  {
+    "year": 2017,
+    "subd_id": -2,
+    "measure": "# Papers",
+    "measureCount": 14
+  },
+  {
+    "year": 2018,
+    "subd_id": -2,
+    "measure": "# Citations",
+    "measureCount": 69
+  },
+  {
+    "year": 2018,
+    "subd_id": -2,
+    "measure": "# Papers",
+    "measureCount": 14
+  },
+  {
+    "year": 2019,
+    "subd_id": -2,
+    "measure": "# Citations",
+    "measureCount": 280
+  },
+  {
+    "year": 2019,
+    "subd_id": -2,
+    "measure": "# Papers",
+    "measureCount": 14
+  },
+  {
+    "year": 2020,
+    "subd_id": -2,
+    "measure": "# Citations",
+    "measureCount": 573
+  },
+  {
+    "year": 2020,
+    "subd_id": -2,
+    "measure": "# Papers",
+    "measureCount": 14
+  },
+  {
+    "year": 2017,
+    "subd_id": 274,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 274,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2018,
+    "subd_id": 274,
+    "measure": "# Citations",
+    "measureCount": 2
+  },
+  {
+    "year": 2018,
+    "subd_id": 274,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2019,
+    "subd_id": 274,
+    "measure": "# Citations",
+    "measureCount": 37
+  },
+  {
+    "year": 2019,
+    "subd_id": 274,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2020,
+    "subd_id": 274,
+    "measure": "# Citations",
+    "measureCount": 95
+  },
+  {
+    "year": 2020,
+    "subd_id": 274,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2017,
+    "subd_id": 218,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 218,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2018,
+    "subd_id": 218,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 218,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2019,
+    "subd_id": 218,
+    "measure": "# Citations",
+    "measureCount": 78
+  },
+  {
+    "year": 2019,
+    "subd_id": 218,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2020,
+    "subd_id": 218,
+    "measure": "# Citations",
+    "measureCount": 107
+  },
+  {
+    "year": 2020,
+    "subd_id": 218,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2017,
+    "subd_id": 51,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 51,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 51,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 51,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 51,
+    "measure": "# Citations",
+    "measureCount": 45
+  },
+  {
+    "year": 2019,
+    "subd_id": 51,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 51,
+    "measure": "# Citations",
+    "measureCount": 129
+  },
+  {
+    "year": 2020,
+    "subd_id": 51,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2017,
+    "subd_id": 523,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 523,
+    "measure": "# Papers",
+    "measureCount": 3
+  },
+  {
+    "year": 2018,
+    "subd_id": 523,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 523,
+    "measure": "# Papers",
+    "measureCount": 3
+  },
+  {
+    "year": 2019,
+    "subd_id": 523,
+    "measure": "# Citations",
+    "measureCount": 28
+  },
+  {
+    "year": 2019,
+    "subd_id": 523,
+    "measure": "# Papers",
+    "measureCount": 3
+  },
+  {
+    "year": 2020,
+    "subd_id": 523,
+    "measure": "# Citations",
+    "measureCount": 74
+  },
+  {
+    "year": 2020,
+    "subd_id": 523,
+    "measure": "# Papers",
+    "measureCount": 3
+  },
+  {
+    "year": 2017,
+    "subd_id": 146,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 146,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 146,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 146,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 146,
+    "measure": "# Citations",
+    "measureCount": 8
+  },
+  {
+    "year": 2019,
+    "subd_id": 146,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 146,
+    "measure": "# Citations",
+    "measureCount": 3
+  },
+  {
+    "year": 2020,
+    "subd_id": 146,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2017,
+    "subd_id": 54,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 54,
+    "measure": "# Papers",
+    "measureCount": 2
+  },
+  {
+    "year": 2018,
+    "subd_id": 54,
+    "measure": "# Citations",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 54,
+    "measure": "# Papers",
+    "measureCount": 2
+  },
+  {
+    "year": 2019,
+    "subd_id": 54,
+    "measure": "# Citations",
+    "measureCount": 4
+  },
+  {
+    "year": 2019,
+    "subd_id": 54,
+    "measure": "# Papers",
+    "measureCount": 2
+  },
+  {
+    "year": 2020,
+    "subd_id": 54,
+    "measure": "# Citations",
+    "measureCount": 12
+  },
+  {
+    "year": 2020,
+    "subd_id": 54,
+    "measure": "# Papers",
+    "measureCount": 2
+  },
+  {
+    "year": 2017,
+    "subd_id": 42,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 42,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 42,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 42,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 42,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2019,
+    "subd_id": 42,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 42,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2020,
+    "subd_id": 42,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2017,
+    "subd_id": 389,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 389,
+    "measure": "# Papers",
+    "measureCount": 5
+  },
+  {
+    "year": 2018,
+    "subd_id": 389,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 389,
+    "measure": "# Papers",
+    "measureCount": 5
+  },
+  {
+    "year": 2019,
+    "subd_id": 389,
+    "measure": "# Citations",
+    "measureCount": 3
+  },
+  {
+    "year": 2019,
+    "subd_id": 389,
+    "measure": "# Papers",
+    "measureCount": 5
+  },
+  {
+    "year": 2020,
+    "subd_id": 389,
+    "measure": "# Citations",
+    "measureCount": 14
+  },
+  {
+    "year": 2020,
+    "subd_id": 389,
+    "measure": "# Papers",
+    "measureCount": 5
+  },
+  {
+    "year": 2017,
+    "subd_id": 238,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 238,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 238,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 238,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 238,
+    "measure": "# Citations",
+    "measureCount": 3
+  },
+  {
+    "year": 2019,
+    "subd_id": 238,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 238,
+    "measure": "# Citations",
+    "measureCount": 5
+  },
+  {
+    "year": 2020,
+    "subd_id": 238,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2017,
+    "subd_id": 384,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 384,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 384,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 384,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 384,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2019,
+    "subd_id": 384,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 384,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2020,
+    "subd_id": 384,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2017,
+    "subd_id": 127,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 127,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2018,
+    "subd_id": 127,
+    "measure": "# Citations",
+    "measureCount": 2
+  },
+  {
+    "year": 2018,
+    "subd_id": 127,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2019,
+    "subd_id": 127,
+    "measure": "# Citations",
+    "measureCount": 52
+  },
+  {
+    "year": 2019,
+    "subd_id": 127,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2020,
+    "subd_id": 127,
+    "measure": "# Citations",
+    "measureCount": 83
+  },
+  {
+    "year": 2020,
+    "subd_id": 127,
+    "measure": "# Papers",
+    "measureCount": 4
+  },
+  {
+    "year": 2017,
+    "subd_id": 16,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 16,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 16,
+    "measure": "# Citations",
+    "measureCount": 3
+  },
+  {
+    "year": 2018,
+    "subd_id": 16,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 16,
+    "measure": "# Citations",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 16,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 16,
+    "measure": "# Citations",
+    "measureCount": 8
+  },
+  {
+    "year": 2020,
+    "subd_id": 16,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2017,
+    "subd_id": 25,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2017,
+    "subd_id": 25,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2018,
+    "subd_id": 25,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2018,
+    "subd_id": 25,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2019,
+    "subd_id": 25,
+    "measure": "# Citations",
+    "measureCount": 0
+  },
+  {
+    "year": 2019,
+    "subd_id": 25,
+    "measure": "# Papers",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 25,
+    "measure": "# Citations",
+    "measureCount": 1
+  },
+  {
+    "year": 2020,
+    "subd_id": 25,
+    "measure": "# Papers",
+    "measureCount": 1
+  }
+]

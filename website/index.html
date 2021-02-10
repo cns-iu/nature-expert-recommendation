@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Nature Expert Recommendation</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  </head>
+  <body onload="updateData()">
+    <p>
+      <label style="display: block; font-size: 12px; font-weight: bold; margin-left: 8px; margin-bottom: 5px;">
+        Dataset
+      </label>
+      <select id="source" style="margin-left: 20px;" onchange="updateData()">
+        <option>Biomedical_Papers_HuBMAP+HCA</option>
+        <option>Biomedical_Papers_HGP</option>
+        <option>Physics_Papers_ATLAS</option>
+        <option>Physics_Papers_BaBar</option>
+        <option>Physics_Papers_IceCube</option>
+        <option>Physics_Papers_LIGO</option>
+        <option>combined</option>
+      </select>
+    </p>
+    <div id="visualization"></div>
+
+    <script type="text/javascript">
+      let finalize;
+
+      function updateData() {
+        if (finalize) {
+          finalize();
+          document.getElementById('visualization').innerHTML = '<em style="margin-left: 15px;">Loading...</em>';
+        }
+        const sourceSelector = document.getElementById('source');
+        fetch("science-map.vl.json").then((result) => result.json()).then((spec) => {
+          sourceSelector.disabled = true;
+          return fetch(`data/${sourceSelector.value}.json`).then((result) => result.json()).then((jsonData) => {
+            document.getElementById('visualization').innerHTML = '';
+            spec.datasets.nodes = jsonData;
+            return vegaEmbed("#visualization", spec, { "renderer": "canvas", "actions": true });
+          });
+        }).then((results) => {
+          finalize = results.finalize;
+          sourceSelector.disabled = false;
+          console.log("Visualization successfully loaded");
+        });
+      }
+    </script>
+  </body>
+</html>
