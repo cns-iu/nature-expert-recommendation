@@ -34,8 +34,11 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
       if (year != NaN) {
         const citationCount = parseInt(data[field] as string, 10);
         addMeasure([year, data.subdisciplineId, '# Citations'], citationCount != NaN ? citationCount : 0);
-        addMeasure([year, data.subdisciplineId, '# Papers'], 1);
       }
+    }
+    const pubYear = parseInt(data.Year as string, 10);
+    if (pubYear != NaN) {
+      addMeasure([pubYear, data.subdisciplineId, '# Papers'], 1);
     }
   }
   const output = Object.entries(rollup).map(([key, measureCount]) => {
@@ -46,7 +49,7 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
       measure,
       measureCount
     };
-  });
+  }).filter(n => !!n.year);
 
   writeJSON(output, outputFile);
   console.log(`${inputFile.split('/').slice(-1)[0]} -- Total: ${records.length}, Science Mapped: ${numSciMapped} (${Math.round(numSciMapped / records.length * 100)}%)`);
