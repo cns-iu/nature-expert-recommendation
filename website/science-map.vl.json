@@ -27,6 +27,9 @@
     {
       "mark": "text",
       "data": {"name": "nodes"},
+      "transform": [
+        {"filter": {"selection": "measure"}}
+      ],
       "selection": {
         "year": {
           "type": "multi",

@@ -24,8 +24,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: npm ci
-        run: npm ci
+      - run: npm install --skip-scripts
         working-directory: data-processor
       - run: npm run job
         working-directory: data-processor
@@ -33,5 +32,5 @@ jobs:
       - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs
+          publish_dir: website
           commit_message: "Production deploy -- ${{ github.event.head_commit.message }}"

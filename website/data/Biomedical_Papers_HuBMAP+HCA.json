@@ -30,12 +30,6 @@
     "measureCount": 16
   },
   {
-    "year": 2017,
-    "subd_id": 1,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2018,
     "subd_id": 1,
     "measure": "# Citations",
@@ -58,18 +52,6 @@
     "subd_id": 1,
     "measure": "# Papers",
     "measureCount": 2
-  },
-  {
-    "year": 2017,
-    "subd_id": 9,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 9,
-    "measure": "# Citations",
-    "measureCount": 0
   },
   {
     "year": 2019,
@@ -138,12 +120,6 @@
     "measureCount": 9
   },
   {
-    "year": 2017,
-    "subd_id": 274,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2018,
     "subd_id": 274,
     "measure": "# Citations",
@@ -172,18 +148,6 @@
     "subd_id": -2,
     "measure": "# Papers",
     "measureCount": 3
-  },
-  {
-    "year": 2017,
-    "subd_id": 218,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 218,
-    "measure": "# Citations",
-    "measureCount": 0
   },
   {
     "year": 2019,
@@ -246,18 +210,6 @@
     "measureCount": 1
   },
   {
-    "year": 2017,
-    "subd_id": 51,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 51,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2019,
     "subd_id": 51,
     "measure": "# Citations",
@@ -274,18 +226,6 @@
     "subd_id": 51,
     "measure": "# Papers",
     "measureCount": 1
-  },
-  {
-    "year": 2017,
-    "subd_id": 523,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 523,
-    "measure": "# Citations",
-    "measureCount": 0
   },
   {
     "year": 2019,
@@ -306,18 +246,6 @@
     "measureCount": 3
   },
   {
-    "year": 2017,
-    "subd_id": 146,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 146,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2019,
     "subd_id": 146,
     "measure": "# Citations",
@@ -334,12 +262,6 @@
     "subd_id": 146,
     "measure": "# Papers",
     "measureCount": 1
-  },
-  {
-    "year": 2017,
-    "subd_id": 54,
-    "measure": "# Citations",
-    "measureCount": 0
   },
   {
     "year": 2018,
@@ -372,46 +294,10 @@
     "measureCount": 2
   },
   {
-    "year": 2017,
-    "subd_id": 42,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 42,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2019,
-    "subd_id": 42,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2020,
-    "subd_id": 42,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2019,
     "subd_id": 42,
     "measure": "# Papers",
     "measureCount": 1
-  },
-  {
-    "year": 2017,
-    "subd_id": 389,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 389,
-    "measure": "# Citations",
-    "measureCount": 0
   },
   {
     "year": 2019,
@@ -444,18 +330,6 @@
     "measureCount": 1
   },
   {
-    "year": 2017,
-    "subd_id": 238,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 238,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2019,
     "subd_id": 238,
     "measure": "# Citations",
@@ -474,30 +348,6 @@
     "measureCount": 1
   },
   {
-    "year": 2017,
-    "subd_id": 384,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 384,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2019,
-    "subd_id": 384,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2020,
-    "subd_id": 384,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2020,
     "subd_id": 384,
     "measure": "# Papers",
@@ -508,12 +358,6 @@
     "subd_id": 54,
     "measure": "# Papers",
     "measureCount": 1
-  },
-  {
-    "year": 2017,
-    "subd_id": 127,
-    "measure": "# Citations",
-    "measureCount": 0
   },
   {
     "year": 2018,
@@ -552,12 +396,6 @@
     "measureCount": 1
   },
   {
-    "year": 2017,
-    "subd_id": 16,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
     "year": 2018,
     "subd_id": 16,
     "measure": "# Citations",
@@ -586,24 +424,6 @@
     "subd_id": 127,
     "measure": "# Papers",
     "measureCount": 1
-  },
-  {
-    "year": 2017,
-    "subd_id": 25,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2018,
-    "subd_id": 25,
-    "measure": "# Citations",
-    "measureCount": 0
-  },
-  {
-    "year": 2019,
-    "subd_id": 25,
-    "measure": "# Citations",
-    "measureCount": 0
   },
   {
     "year": 2020,
