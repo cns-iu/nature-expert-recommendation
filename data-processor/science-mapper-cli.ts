@@ -72,9 +72,10 @@ function main() {
 
   let allData = [];
   for (const inputFile of files) {
-    const outputFile = `../website/data/${inputFile.split('/').slice(-1)[0].replace('_tomap.csv', '')}.json`;
+    const sourceBase = inputFile.split('/').slice(-1)[0].replace('_tomap.csv', '');
+    const outputFile = `../website/data/${sourceBase}.json`;
     const output = scienceMapCSV(inputFile, outputFile, issnFields, journalNameFields)
-    const source = inputFile.replace('_tomap.csv', '').replace(/_/g, ' ');
+    const source = sourceBase.replace(/_/g, ' ');
     allData = allData.concat(output.map(n => Object.assign(n, {source})));
   }
   writeJSON(allData, '../website/data/combined.json');
