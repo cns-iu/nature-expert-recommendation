@@ -177,7 +177,7 @@
           {"field": "disc_name", "type": "nominal", "title": "Discipline"},
           {"field": "subd_name", "type": "nominal", "title": "Subdiscipline"},
           {"field": "measure", "type": "nominal", "title": "Measure"},
-          {"aggregate": "sum", "field": "measureCount", "title": "Sum of Measure"}
+          {"aggregate": "sum", "field": "measureCount", "format": ",", "title": "Sum of Measure"}
         ]
       }
     },
