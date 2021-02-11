@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { parse, unparse } from 'papaparse';
-import { argv } from 'process';
+import { sync as glob } from 'glob';
+import { parse } from 'papaparse';
 
 import { scienceMap } from './science-mapper';
 
@@ -31,13 +31,13 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
     const citationFields = Object.keys(data).filter(field => field.startsWith('Citations '));
     for (const field of citationFields) {
       const year = parseInt(field.split(' ').slice(-1)[0], 10);
-      if (year != NaN) {
+      if (isNaN(year)) {
         const citationCount = parseInt(data[field] as string, 10);
         addMeasure([year, data.subdisciplineId, '# Citations'], citationCount != NaN ? citationCount : 0);
       }
     }
     const pubYear = parseInt(data.Year as string, 10);
-    if (pubYear != NaN) {
+    if (isNaN(pubYear)) {
       addMeasure([pubYear, data.subdisciplineId, '# Papers'], 1);
     }
   }
@@ -56,30 +56,28 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
   return output;
 }
 
-const issnFields = [
-  'Venue ISBN'
-];
-const journalNameFields = [
-  'Journal Long Name',
-  'Journal Name',
-  'Publisher',
-  'OriginalVenue',
-  'Venue Map Name',
-  'Venue Acronym'
-];
-const files = [
-  'Biomedical_Papers_HGP_tomap.csv',
-  'Physics_Papers_ATLAS_tomap.csv',
-  'Biomedical_Papers_HuBMAP+HCA_tomap.csv',
-  'Physics_Papers_IceCube_tomap.csv',
-  'Physics_Papers_BaBar_tomap.csv',
-  'Physics_Papers_LIGO_tomap.csv'
-];
+function main() {
+  const issnFields = [
+    'Venue ISBN'
+  ];
+  const journalNameFields = [
+    'Journal Long Name',
+    'Journal Name',
+    'Publisher',
+    'OriginalVenue',
+    'Venue Map Name',
+    'Venue Acronym'
+  ];
+  const files = glob('raw-data/**/*.csv');
 
-let allData = [];
-for (const f of files) {
-  const output = scienceMapCSV(`raw-data/${f}`, `../website/data/${f.replace('_tomap.csv', '')}.json`, issnFields, journalNameFields)
-  const source = f.replace('_tomap.csv', '').replace(/_/g, ' ');
-  allData = allData.concat(output.map(n => Object.assign(n, {source})));
+  let allData = [];
+  for (const inputFile of files) {
+    const outputFile = `../website/data/${inputFile.split('/').slice(-1)[0].replace('_tomap.csv', '')}.json`;
+    const output = scienceMapCSV(inputFile, outputFile, issnFields, journalNameFields)
+    const source = inputFile.replace('_tomap.csv', '').replace(/_/g, ' ');
+    allData = allData.concat(output.map(n => Object.assign(n, {source})));
+  }
+  writeJSON(allData, '../website/data/combined.json');
 }
-writeJSON(allData, '../website/data/combined.json');
+
+main();
