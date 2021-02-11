@@ -27,6 +27,9 @@
     {
       "mark": "text",
       "data": {"name": "nodes"},
+      "transform": [
+        {"filter": {"selection": "measure"}}
+      ],
       "selection": {
         "year": {
           "type": "multi",
@@ -170,7 +173,12 @@
         "stroke": {"value": "#000007" },
         "fill": {"field": "disc_name", "type": "nominal"},
         "size": {"aggregate": "sum", "field": "measureCount", "scale": {"rangeMin": 20}, "legend": {"title": "Area Size (Sum of Measure)", "symbolOffset": 10, "orient": "right", "offset": 100}},
-        "tooltip": {"field": "subd_name", "type": "nominal"}
+        "tooltip": [
+          {"field": "disc_name", "type": "nominal", "title": "Discipline"},
+          {"field": "subd_name", "type": "nominal", "title": "Subdiscipline"},
+          {"field": "measure", "type": "nominal", "title": "Measure"},
+          {"aggregate": "sum", "field": "measureCount", "title": "Sum of Measure"}
+        ]
       }
     },
     {
