@@ -31,13 +31,13 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
     const citationFields = Object.keys(data).filter(field => field.startsWith('Citations '));
     for (const field of citationFields) {
       const year = parseInt(field.split(' ').slice(-1)[0], 10);
-      if (isNaN(year)) {
+      if (!isNaN(year)) {
         const citationCount = parseInt(data[field] as string, 10);
         addMeasure([year, data.subdisciplineId, '# Citations'], citationCount != NaN ? citationCount : 0);
       }
     }
     const pubYear = parseInt(data.Year as string, 10);
-    if (isNaN(pubYear)) {
+    if (!isNaN(pubYear)) {
       addMeasure([pubYear, data.subdisciplineId, '# Papers'], 1);
     }
   }
