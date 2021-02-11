@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [13.x]
+        node-version: [15.x]
  
     steps:
       - uses: actions/checkout@v1
@@ -24,7 +24,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm install --skip-scripts
+      - run: npm ci --skip-scripts
         working-directory: data-processor
       - run: npm run job
         working-directory: data-processor
