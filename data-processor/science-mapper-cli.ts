@@ -49,7 +49,7 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
       measure,
       measureCount
     };
-  }).filter(n => !!n.year);
+  }).filter(n => !!n.year && n.measureCount > 0);
 
   writeJSON(output, outputFile);
   console.log(`${inputFile.split('/').slice(-1)[0]} -- Total: ${records.length}, Science Mapped: ${numSciMapped} (${Math.round(numSciMapped / records.length * 100)}%)`);
