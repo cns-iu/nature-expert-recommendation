@@ -39,7 +39,7 @@
         }
       },
       "encoding": {
-        "opacity": {"field": "year", "legend": {"title": "Year", "orient": "left", "symbolSize": 0}}
+        "opacity": {"field": "year", "type": "ordinal", "sort": "descending", "legend": {"title": "Year", "orient": "left", "symbolSize": 0}}
       }
     },
     {
