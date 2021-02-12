@@ -16,9 +16,9 @@ The table below shows the number of papers that have a publication venue that is
 
 |Dataset|#Papers|#Citations|#Subdisciplines out of 554|#Papers in Multidisciplinary|#Papers in Unclassified|
 |:--|--:|--:|--:|--:|--:|
-|Physics > ATLAS          |13,729|177,233
-|Physics > BaBar          | 2,607| 50,687
-|Astronomy > LIGO         |   560| 41,287
-|Astronomy > IceCube      | 1,054| 23,155
-|Biomedical > HGP         |   106| 29,540
-|Biomedical > HCA & HuBMAP|    92|  2,856
+|Physics > ATLAS          |13,729|177,233|21|2|9,999|
+|Physics > BaBar          | 2,607| 50,687|8|0|1,550|
+|Astronomy > LIGO         |   560| 41,287|12|4|150|
+|Astronomy > IceCube      | 1,054| 23,155|12|6|655|
+|Biomedical > HGP         |   106| 29,540|3|84|0|
+|Biomedical > HCA & HuBMAP|    92|  2,856|17|14|36|

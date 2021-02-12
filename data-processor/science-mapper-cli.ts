@@ -33,7 +33,7 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
       const year = parseInt(field.split(' ').slice(-1)[0], 10);
       if (!isNaN(year)) {
         const citationCount = parseInt(data[field] as string, 10);
-        addMeasure([year, data.subdisciplineId, '# Citations'], citationCount != NaN ? citationCount : 0);
+        addMeasure([year, data.subdisciplineId, '# Citations'], !isNaN(citationCount) ? citationCount : 0);
       }
     }
     const pubYear = parseInt(data.Year as string, 10);
@@ -54,6 +54,50 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
   writeJSON(output, outputFile);
   console.log(`${inputFile.split('/').slice(-1)[0]} -- Total: ${records.length}, Science Mapped: ${numSciMapped} (${Math.round(numSciMapped / records.length * 100)}%)`);
   return output;
+}
+
+function printStats(measurements: {source: string; year: number; subd_id: number; measure: string; measureCount: number;}[]) {
+  console.log('|Dataset|#Papers|#Citations|#Subdisciplines out of 554|#Papers in Multidisciplinary|#Papers in Unclassified|\n|:--|--:|--:|--:|--:|--:|');
+  const stats: {[source:string]: {
+    source: string; numPapers: number; numCites: number; subdisciplines: Set<number>;
+    mdPapers: number; unclassifiedPapers: number;
+  }} = {};
+
+  for (const data of measurements) {
+    if (!stats.hasOwnProperty(data.source)) {
+      stats[data.source] = {
+        source: data.source,
+        numPapers: 0,
+        numCites: 0,
+        subdisciplines: new Set(),
+        mdPapers: 0,
+        unclassifiedPapers: 0
+      }
+    }
+    const stat = stats[data.source];
+    stat.subdisciplines.add(data.subd_id);
+
+    switch (data.measure) {
+      case '# Papers':
+        stat.numPapers += data.measureCount;
+        switch (data.subd_id) {
+          case -1:
+            stat.unclassifiedPapers += data.measureCount;
+            break;
+          case -2:
+            stat.mdPapers += data.measureCount;
+            break;
+        }
+        break;
+      case '# Citations':
+        stat.numCites += data.measureCount;
+        break;
+    }
+  }
+
+  for (const stat of Object.values(stats)) {
+    console.log(`|${stat.source}|${stat.numPapers.toLocaleString()}|${stat.numCites.toLocaleString()}|${stat.subdisciplines.size.toLocaleString()}|${stat.mdPapers.toLocaleString()}|${stat.unclassifiedPapers.toLocaleString()}|`);
+  }
 }
 
 function main() {
@@ -78,6 +122,7 @@ function main() {
     const source = sourceBase.replace(/_/g, ' ');
     allData = allData.concat(output.map(n => Object.assign(n, {source})));
   }
+  printStats(allData);
   writeJSON(allData, '../website/data/combined.json');
 }
 
