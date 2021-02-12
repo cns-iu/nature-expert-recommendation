@@ -1,6 +1,4 @@
-# Nature Expert Recommendation Visualization
-
-## Embracing data-driven decision making to manage and communicate the impact of big science projects
+**Embracing data-driven decision making to manage and communicate the impact of big science projects**
 
 [![Preview](preview.png)](https://cns-iu.github.io/nature-expert-recommendation/)
 
