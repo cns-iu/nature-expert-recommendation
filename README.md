@@ -1,5 +1,7 @@
 # Nature Expert Recommendation Visualization
 
+## Embracing data-driven decision making to manage and communicate the impact of big science projects
+
 <https://cns-iu.github.io/nature-expert-recommendation/>
 
 ## About This Visualization
@@ -11,3 +13,12 @@ The map depicts the number of papers or citations (one measure must be selected 
 As time progresses, the number of papers and citations increase. The four physics and astronomy projects publish mainly in the ‘Math & Physics’ discipline. The biomedical projects publish in many different disciplines of science.
 
 The table below shows the number of papers that have a publication venue that is indexed by Scopus and/or Web of Science and hence can be science located together with the number of subdisciplines that these papers are published in. We also list the number of papers in the ‘Multidisciplinary’ and ‘Unclassified’ category.
+
+|Dataset|#Papers|#Citations|#Subdisciplines out of 554|#Papers in Multidisciplinary|#Papers in Unclassified|
+|:--|--:|--:|--:|--:|--:|
+|Physics > ATLAS          |13,729|177,233
+|Physics > BaBar          | 2,607| 50,687
+|Astronomy > LIGO         |   560| 41,287
+|Astronomy > IceCube      | 1,054| 23,155
+|Biomedical > HGP         |   106| 29,540
+|Biomedical > HCA & HuBMAP|    92|  2,856
