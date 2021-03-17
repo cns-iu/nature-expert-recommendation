@@ -1,22 +1,34 @@
 /* jshint esversion: 6 */
 let finalize;
 
+const dataPromise = Promise.all([
+  fetch("science-map.vl.json").then((r) => r.json()),
+  fetch('data/combined-nodes.json').then(r => r.json()),
+  fetch('data/combined-edges.json').then(r => r.json())
+]);
+
 function updateData() {
   if (finalize) {
     finalize();
     document.getElementById('visualization').innerHTML = '<em class="loading">Loading...</em>';
   }
   const sourceSelector = document.getElementById('source');
-  fetch("science-map.vl.json").then((result) => result.json()).then((spec) => {
-    sourceSelector.disabled = true;
-    return fetch(`data/${sourceSelector.value}.json`).then((result) => result.json()).then((jsonData) => {
+  sourceSelector.disabled = true;
+  setTimeout(() => {
+    dataPromise.then(([spec, nodes, edges]) => {
+      const src = sourceSelector.value;
+      if (src !== 'combined') {
+        nodes = nodes.filter(n => n.src === src);
+        edges = edges.filter(n => n.src === src);
+      }
+      spec.datasets.nodes = nodes;
+      spec.datasets.edges = edges;
       document.getElementById('visualization').innerHTML = '';
-      spec.datasets.nodes = jsonData;
       return vegaEmbed("#visualization", spec, { "renderer": "canvas", "actions": true });
+    }).then((results) => {
+      finalize = results.finalize;
+      sourceSelector.disabled = false;
+      console.log("Visualization successfully loaded");
     });
-  }).then((results) => {
-    finalize = results.finalize;
-    sourceSelector.disabled = false;
-    console.log("Visualization successfully loaded");
-  });
+  }, 50);
 }
