@@ -2,68 +2,12 @@
 <html lang="en">
   <head>
     <title>Nature Expert Recommendation</title>
+    <script src="https://cdn.jsdelivr.net/gh/vanillawc/wc-markdown@1/index.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
-    <style>
-      body {
-        font-family: sans-serif;
-        width: 1248px;
-      }
-      h1 {
-        font-size: 24px;
-        margin-left: 5px;
-        margin-right: 10px;
-      }
-      label {
-        display: block;
-        font-size: 11px;
-        font-weight: bold;
-        margin-left: 8px;
-        margin-bottom: 5px;
-      }
-      select {
-        margin-left: 20px;
-        font-size: 11px;
-      }
-      .loading {
-        margin-left: 15px;
-      }
-      #visualization {
-        display: block;
-        height: 604px;
-      }
-      .about {
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-
-      table {
-        display: block;
-        width: 100%;
-        overflow: auto;
-        border: 1px solid #dfe2e5;
-      }
-
-      table th {
-        font-weight: 600;
-      }
-
-      table td,
-      table th {
-        padding: 6px 13px;
-        border: 1px solid #dfe2e5;
-      }
-
-      table tr {
-        background-color: #fff;
-        border-top: 1px solid #c6cbd1;
-      }
-
-      table tr:nth-child(2n) {
-        background-color: #f6f8fa;
-      }
-    </style>
+    <script src="main.js"></script>
+    <link rel="stylesheet" href="styles.css"></head>
   </link>
   </head>
   <body onload="updateData()">
@@ -80,124 +24,7 @@
         <option value="Biomedical_Papers_HuBMAP+HCA">Biomedical &gt; HCA &amp; HuBMAP</option>
       </select>
     </p>
-
     <div id="visualization"></div>
-
-    <div class="about">
-      <p>
-        <a href="https://cns-iu.github.io/nature-expert-recommendation">https://cns-iu.github.io/nature-expert-recommendation</a>
-      </p>
-      <p>This interactive data visualization accompanies the <em>Nature</em> Expert Recommendation on “Embracing
-        data-driven decision making to manage and communicate the impact of big science projects.” The visualization
-        uses the UCSD Map of Science and Classification System computed using 2006–2008 data from Scopus and 2005–2010
-        data from the Web of Science (<a
-          href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0039464">1</a>). The map organizes
-        more than 25,000 journal/conference venues into 554 (sub)disciplines that are further aggregated into thirteen
-        main scientific disciplines (e.g., physics, biology), which are labeled and color-coded in the map. The network
-        of 554 (sub)disciplines is then laid out on the surface of a sphere and flattened using a Mercator projection.
-        In order to create proportional symbol (here circle) overlays, a new dataset is “science-coded” using the
-        journals (or keywords) associated with each of the 554 (sub)disciplines. For example, a paper published in the
-        journal <em>Pharmacogenomics</em> has the science-location ‘Molecular Medicine,’ as it is associated with this
-        (sub)discipline in the discipline ‘Health Professionals’. The ‘Multidisciplinary’ node in lower left encodes
-        journals such as <em>Science</em> or <em>Nature</em>. The ‘Unclassified’ node next to it indicates how many
-        papers could not be science located.</p>
-      <p>The map depicts the number of papers or citations (one measure must be selected or no data is shown) for six
-        big science projects (select one or all datasets in top left menu) and their change over time (use Shift+Click
-        to select any set of years on left). Circle color indicates scientific discipline while circle area side denotes
-        the total number of papers or citations in a scientific subdiscipline, see legend in upper right. Hover over a
-        node to see the number of papers/citations in that subdiscipline.</p>
-      <p>As time progresses, the number of papers and citations increase. The four physics and astronomy projects
-        publish mainly in the ‘Math &amp; Physics’ discipline. The biomedical projects publish in many different
-        disciplines of science.</p>
-      <p>The table below shows the number of papers that have a publication venue that is indexed by Scopus and/or Web
-        of Science and hence can be science located together with the number of subdisciplines that these papers are
-        published in. We also list the number of papers in the ‘Multidisciplinary’ and ‘Unclassified’ category.</p>
-      <table>
-        <thead>
-        <tr>
-        <th style="text-align:left">Dataset</th>
-        <th style="text-align:right">#Papers</th>
-        <th style="text-align:right">#Citations</th>
-        <th style="text-align:right">#Subdisciplines out of 554</th>
-        <th style="text-align:right">#Papers in Multidisciplinary</th>
-        <th style="text-align:right">#Papers in Unclassified</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td style="text-align:left">Physics &gt; ATLAS</td>
-        <td style="text-align:right">13,729</td>
-        <td style="text-align:right">177,233</td>
-        <td style="text-align:right">21</td>
-        <td style="text-align:right">2</td>
-        <td style="text-align:right">9,999</td>
-        </tr>
-        <tr>
-        <td style="text-align:left">Physics &gt; BaBar</td>
-        <td style="text-align:right">2,607</td>
-        <td style="text-align:right">50,687</td>
-        <td style="text-align:right">8</td>
-        <td style="text-align:right">0</td>
-        <td style="text-align:right">1,550</td>
-        </tr>
-        <tr>
-        <td style="text-align:left">Astronomy &gt; LIGO</td>
-        <td style="text-align:right">560</td>
-        <td style="text-align:right">41,287</td>
-        <td style="text-align:right">12</td>
-        <td style="text-align:right">4</td>
-        <td style="text-align:right">150</td>
-        </tr>
-        <tr>
-        <td style="text-align:left">Astronomy &gt; IceCube</td>
-        <td style="text-align:right">1,054</td>
-        <td style="text-align:right">23,155</td>
-        <td style="text-align:right">12</td>
-        <td style="text-align:right">6</td>
-        <td style="text-align:right">655</td>
-        </tr>
-        <tr>
-        <td style="text-align:left">Biomedical &gt; HGP</td>
-        <td style="text-align:right">106</td>
-        <td style="text-align:right">29,540</td>
-        <td style="text-align:right">3</td>
-        <td style="text-align:right">84</td>
-        <td style="text-align:right">0</td>
-        </tr>
-        <tr>
-        <td style="text-align:left">Biomedical &gt; HCA &amp; HuBMAP</td>
-        <td style="text-align:right">92</td>
-        <td style="text-align:right">2,856</td>
-        <td style="text-align:right">17</td>
-        <td style="text-align:right">14</td>
-        <td style="text-align:right">36</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <script type="text/javascript">
-      let finalize;
-
-      function updateData() {
-        if (finalize) {
-          finalize();
-          document.getElementById('visualization').innerHTML = '<em class="loading">Loading...</em>';
-        }
-        const sourceSelector = document.getElementById('source');
-        fetch("science-map.vl.json").then((result) => result.json()).then((spec) => {
-          sourceSelector.disabled = true;
-          return fetch(`data/${sourceSelector.value}.json`).then((result) => result.json()).then((jsonData) => {
-            document.getElementById('visualization').innerHTML = '';
-            spec.datasets.nodes = jsonData;
-            return vegaEmbed("#visualization", spec, { "renderer": "canvas", "actions": true });
-          });
-        }).then((results) => {
-          finalize = results.finalize;
-          sourceSelector.disabled = false;
-          console.log("Visualization successfully loaded");
-        });
-      }
-    </script>
+    <wc-markdown src="README.md" class="about"></wc-markdown>
   </body>
 </html>
