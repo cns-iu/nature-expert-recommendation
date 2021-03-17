@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "job": "ts-node science-mapper-cli.ts",
+    "job": "npm-run-all science-map edge-bundle",
+    "science-map": "ts-node science-mapper-cli.ts",
+    "edge-bundle": "ts-node edge-bundler-cli.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -23,6 +25,7 @@
     "js-yaml": "^4.0.0",
     "nano-sql": "^1.8.5",
     "ngx-vega": "^0.51.0",
+    "npm-run-all": "^4.1.5",
     "papaparse": "^5.3.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.4",

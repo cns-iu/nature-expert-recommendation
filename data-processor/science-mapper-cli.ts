@@ -4,12 +4,19 @@ import { parse } from 'papaparse';
 
 import { scienceMap } from './science-mapper';
 
+interface ScienceMapData {
+  src: string;
+  year: number;
+  subd_id: number;
+  measure: string;
+  measureCount: number;
+}
 
 function readCSV(inputFile: string): {[field: string]: unknown}[] {
   return parse(readFileSync(inputFile).toString('utf-8'), {header: true}).data as {[field: string]: unknown}[];
 }
 function writeJSON(data: unknown, outputFile: string) {
-  writeFileSync(outputFile, JSON.stringify(data, null, 2));
+  writeFileSync(outputFile, JSON.stringify(data));
 }
 
 function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string[], journalNameFields: string[]): unknown[] {
@@ -51,22 +58,22 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
     };
   }).filter(n => !!n.year && n.measureCount > 0);
 
-  writeJSON(output, outputFile);
+  // writeJSON(output, outputFile);
   console.log(`${inputFile.split('/').slice(-1)[0]} -- Total: ${records.length}, Science Mapped: ${numSciMapped} (${Math.round(numSciMapped / records.length * 100)}%)`);
   return output;
 }
 
-function printStats(measurements: {source: string; year: number; subd_id: number; measure: string; measureCount: number;}[]) {
+function printStats(measurements: ScienceMapData[]) {
   console.log('|Dataset|#Papers|#Citations|#Subdisciplines out of 554|#Papers in Multidisciplinary|#Papers in Unclassified|\n|:--|--:|--:|--:|--:|--:|');
-  const stats: {[source:string]: {
-    source: string; numPapers: number; numCites: number; subdisciplines: Set<number>;
+  const stats: {[src:string]: {
+    src: string; numPapers: number; numCites: number; subdisciplines: Set<number>;
     mdPapers: number; unclassifiedPapers: number;
   }} = {};
 
   for (const data of measurements) {
-    if (!stats.hasOwnProperty(data.source)) {
-      stats[data.source] = {
-        source: data.source,
+    if (!stats.hasOwnProperty(data.src)) {
+      stats[data.src] = {
+        src: data.src,
         numPapers: 0,
         numCites: 0,
         subdisciplines: new Set(),
@@ -74,7 +81,7 @@ function printStats(measurements: {source: string; year: number; subd_id: number
         unclassifiedPapers: 0
       }
     }
-    const stat = stats[data.source];
+    const stat = stats[data.src];
     stat.subdisciplines.add(data.subd_id);
 
     switch (data.measure) {
@@ -96,7 +103,7 @@ function printStats(measurements: {source: string; year: number; subd_id: number
   }
 
   for (const stat of Object.values(stats)) {
-    console.log(`|${stat.source}|${stat.numPapers.toLocaleString()}|${stat.numCites.toLocaleString()}|${stat.subdisciplines.size.toLocaleString()}|${stat.mdPapers.toLocaleString()}|${stat.unclassifiedPapers.toLocaleString()}|`);
+    console.log(`|${stat.src}|${stat.numPapers.toLocaleString()}|${stat.numCites.toLocaleString()}|${stat.subdisciplines.size.toLocaleString()}|${stat.mdPapers.toLocaleString()}|${stat.unclassifiedPapers.toLocaleString()}|`);
   }
 }
 
@@ -112,18 +119,18 @@ function main() {
     'Venue Map Name',
     'Venue Acronym'
   ];
-  const files = glob('raw-data/**/*.csv');
+  const files = glob('../raw-data/publications/**/*.csv');
 
-  let allData = [];
+  let allData: ScienceMapData[] = [];
   for (const inputFile of files) {
     const sourceBase = inputFile.split('/').slice(-1)[0].replace('_tomap.csv', '');
     const outputFile = `../website/data/${sourceBase}.json`;
     const output = scienceMapCSV(inputFile, outputFile, issnFields, journalNameFields)
-    const source = sourceBase.replace(/_/g, ' ');
-    allData = allData.concat(output.map(n => Object.assign(n, {source})));
+    const source = sourceBase.replace(/_/g, ' ').split(' ').slice(-1)[0];
+    allData = allData.concat(output.map(n => Object.assign(n, {src: source})) as ScienceMapData[]);
   }
   printStats(allData);
-  writeJSON(allData, '../website/data/combined.json');
+  writeJSON(allData, '../website/data/combined-nodes.json');
 }
 
 main();

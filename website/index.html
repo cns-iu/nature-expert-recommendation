@@ -16,15 +16,15 @@
       <label>Dataset</label>
       <select id="source" onchange="updateData()">
         <option value="combined">All Six</option>
-        <option value="Physics_Papers_ATLAS">Physics &gt; ATLAS</option>
-        <option value="Physics_Papers_BaBar">Physics &gt; BaBar</option>
-        <option value="Physics_Papers_LIGO">Astronomy &gt; LIGO</option>
-        <option value="Physics_Papers_IceCube">Astronomy &gt; IceCube </option>
-        <option value="Biomedical_Papers_HGP">Biomedical &gt; HGP</option>
-        <option value="Biomedical_Papers_HuBMAP+HCA">Biomedical &gt; HCA &amp; HuBMAP</option>
+        <option value="ATLAS">Physics &gt; ATLAS</option>
+        <option value="BaBar">Physics &gt; BaBar</option>
+        <option value="LIGO">Astronomy &gt; LIGO</option>
+        <option value="IceCube">Astronomy &gt; IceCube </option>
+        <option value="HGP">Biomedical &gt; HGP</option>
+        <option value="HuBMAP+HCA">Biomedical &gt; HCA &amp; HuBMAP</option>
       </select>
     </p>
-    <div id="visualization"></div>
+    <div id="visualization"><em class="loading">Loading...</em></div>
     <wc-markdown src="README.md" class="about"></wc-markdown>
   </body>
 </html>
