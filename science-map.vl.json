@@ -4,7 +4,7 @@
   "autosize": {"type": "fit", "resize": true, "contains": "padding"},
   "padding": 8,
   "width": 1200,
-  "height": 800,
+  "height": 600,
   "config": {"view": {"strokeOpacity": 0}},
   "resolve": {"scale": {"opacity": "independent", "size": "independent"}},
   "layer": [
