@@ -78,18 +78,8 @@
     },
     {
       "mark": "point",
-      "data": {"name": "nodes"},
+      "data": {"name": "subdisciplines"},
       "transform": [
-        {"filter": {"selection": "measure"}},
-        {"filter": {"selection": "year"}},
-        {
-          "lookup": "subd_id",
-          "from": {
-            "data": {"name": "subdisciplines"},
-            "key": "subd_id",
-            "fields": ["x", "y", "subd_id", "subd_name", "disc_id"]
-          }
-        },
         {
           "lookup": "disc_id",
           "from": {
@@ -98,12 +88,6 @@
             "fields": ["disc_name", "color"]
           },
           "as": ["disc_name", "disc_color"]
-        },
-        {
-          "joinaggregate": [
-            {"op": "count", "field": "disc_name", "as": "disc_count"}
-          ],
-          "groupby": ["disc_name", "disc_color"]
         }
       ],
       "selection": {
