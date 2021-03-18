@@ -188,6 +188,8 @@
           "legend": {
             "title": "Edge Size (Sum of Measure)",
             "symbolOffset": 5,
+            "symbolFillColor": "black",
+            "symbolStrokeColor": "black",
             "orient": "right",
             "offset": 5
           }
