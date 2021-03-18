@@ -288,7 +288,7 @@
         "shape": {"value": "circle"},
         "strokeOpacity": {"value": 1},
         "strokeWidth": {"value": 0.5},
-        "fillOpacity": {"value": 0.75},
+        "fillOpacity": {"value": 0.9},
         "stroke": {"value": "#000007" },
         "fill": {"field": "disc_name", "type": "nominal"},
         "size": {"aggregate": "sum", "field": "measureCount", "scale": {"type": "log", "rangeMin": 20}, "legend": {"title": "Area Size (Sum of Measure)", "symbolOffset": 10, "orient": "right", "offset": 100}},
@@ -325,7 +325,7 @@
           "scale": {"domain": [0, 275]},
           "axis": null
         },
-        "color": {"field": "color", "type": "nominal", "scale": null},
+        "color": {"field": "color", "type": "nominal", "scale": null, "legend": null},
         "text": {"field": "disc_name", "type": "nominal"}
       }
     }
