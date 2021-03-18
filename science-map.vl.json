@@ -187,9 +187,13 @@
           "scale": {"type": "log", "rangeMin": 1, "rangeMax": 20},
           "legend": {
             "title": "Edge Size (Sum of Measure)",
-            "symbolOffset": 5,
+            "symbolFillColor": "black",
+            "symbolStrokeColor": "black",
             "orient": "right",
-            "offset": 5
+            "symbolType": "stroke",
+            "symbolSize": 1200,
+            "rowPadding": 0,
+            "offset": 0
           }
         },
         "tooltip": [
