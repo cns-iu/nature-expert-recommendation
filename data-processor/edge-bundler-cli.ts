@@ -1,13 +1,15 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { sync as glob } from 'glob';
+import { set, get } from 'lodash';
 import { parse } from 'papaparse';
 import { journalIdSubdLookup } from '@dvl-fw/science-map';
 
 interface Edge {
-  source: number;
-  target: number;
+  subd_id1: number;
+  subd_id2: number;
   edgeMeasure: string;
-  edgeMeasureCount: number;
+  weight: number;
+  edgeYear: number;
   src?: string;
 }
 
@@ -24,19 +26,32 @@ function getSubdiscipline(journalId: string): number {
   return subdisciplineId;
 }
 
-function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, sourceField: string, targetField: string): Edge[] {
-  const edgeCounts: Record<string, number> = {};
+function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, sourceField: string, targetField: string, yearField: string): Edge[] {
+  const edgeCounts: any = {};
   for (const row of readCSV(inputFile)) {
-    const source = getSubdiscipline(row['Citing Venue SciMap ID'] as string);
-    const target = getSubdiscipline(row['Cited Venue SciMap ID'] as string);
+    const source = getSubdiscipline(row[sourceField] as string);
+    const target = getSubdiscipline(row[targetField] as string);
+    const year = parseInt(row[yearField] as string, 10);
+    const key = ['' + year, '' + source, '' + target];
 
-    const edgeId = `${source}|${target}`;
-    edgeCounts[edgeId] = 1 + (edgeCounts[edgeId] || 0);
+    set(edgeCounts, key, get(edgeCounts, key, 0) + 1);
   }
-  const edges = Object.entries(edgeCounts).map(([edgeId, edgeMeasureCount]) => {
-    const [source, target] = edgeId.split('|').map(n => parseInt(n));
-    return {source, target, edgeMeasure: measure, edgeMeasureCount} as Edge;
-  });
+
+  const edges: Edge[] = [];
+  for (const year of Object.keys(edgeCounts)) {
+    for (const source of Object.keys(edgeCounts[year])) {
+      for (const target of Object.keys(edgeCounts[year][source])) {
+        const count = edgeCounts[year][source][target];
+        edges.push({
+          subd_id1: parseInt(source, 10),
+          subd_id2: parseInt(target, 10),
+          edgeMeasure: measure,
+          weight: count,
+          edgeYear: parseInt(year, 10)
+        });
+      }
+    }
+  }
 
   // writeJSON(edges, outputFile);
   console.log(`${inputFile.split('/').slice(-1)[0]} -- Total: ${edges.length}`);
@@ -54,12 +69,16 @@ function main() {
     const sourceBase = inputFile.split('/').slice(-1)[0].replace('_tomap.csv', '');
     const outputFile = `../website/data/${sourceBase}.json`;
     let measure = '# Edges';
+    let year = '';
     if (inputFile.indexOf('Citing') !== -1) {
-      measure = '# Citing';
+      measure = '# Citations';
+      year = 'Citing Publication Year';
     } else if (inputFile.indexOf('Referenced') !== -1) {
-      measure = '# Referenced';
+      measure = '# References';
+      year = 'Cited Publication Year';
     }
-    const output = edgeBundleCSV(inputFile, outputFile, measure, 'Citing Venue SciMap ID', 'Cited Venue SciMap ID');
+    const output = edgeBundleCSV(inputFile, outputFile, measure, 
+      'Citing Venue SciMap ID', 'Cited Venue SciMap ID', year);
 
     const source = sourceBase.replace(/_/g, ' ').split(' ').slice(-1)[0];
     allData = allData.concat(output.map(n => Object.assign(n, {src: source})));
