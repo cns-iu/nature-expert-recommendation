@@ -32,7 +32,7 @@ function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, s
     const source = getSubdiscipline(row[sourceField] as string);
     const target = getSubdiscipline(row[targetField] as string);
     const year = parseInt(row[yearField] as string, 10);
-    const key = ['' + year, '' + source, '' + target];
+    const key = ['' + year, '' + Math.min(source, target), '' + Math.max(source, target)];
 
     set(edgeCounts, key, get(edgeCounts, key, 0) + 1);
   }
