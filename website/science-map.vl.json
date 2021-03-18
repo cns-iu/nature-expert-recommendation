@@ -181,7 +181,16 @@
         "x2": {"field": "x2", "type": "quantitative"},
         "y2": {"field": "y2", "type": "quantitative"},
         "color": {"field": "edgeMeasure", "type": "nominal", "scale": {"domain": ["# Citations", "# References"], "range": ["#00dd00", "#555555"]}, "legend": null},
-        "strokeWidth": {"aggregate": "sum", "field": "weight", "scale": {"type": "log", "rangeMin": 1, "rangeMax": 20}, "legend": null},
+        "strokeWidth": {
+          "aggregate": "sum",
+          "field": "weight",
+          "scale": {"type": "log", "rangeMin": 1, "rangeMax": 20},
+          "legend": {
+            "title": "Edge Size (Sum of Measure)",
+            "symbolOffset": 5,
+            "orient": "right",
+            "offset": 5
+          },
         "tooltip": [
           {"field": "subd_name", "type": "nominal", "title": "Source Subdiscipline"},
           {"field": "subd2_name", "type": "nominal", "title": "Target Subdiscipline"},
