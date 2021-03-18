@@ -184,8 +184,8 @@
         "tooltip": [
           {"field": "subd_name", "type": "nominal", "title": "Source Subdiscipline"},
           {"field": "subd2_name", "type": "nominal", "title": "Target Subdiscipline"},
-          {"field": "edgeMeasure", "type": "nominal", "title": "Measure"},
-          {"aggregate": "sum", "field": "weight", "format": ",", "title": "Sum of Measure"}
+          {"field": "edgeMeasure", "type": "nominal", "title": "Edge Measure"},
+          {"aggregate": "sum", "field": "weight", "format": ",", "title": "Sum of Edge Measure"}
         ]
       }
     },
@@ -275,12 +275,12 @@
         "fillOpacity": {"value": 0.9},
         "stroke": {"value": "#000007" },
         "fill": {"field": "disc_name", "type": "nominal"},
-        "size": {"aggregate": "sum", "field": "measureCount", "scale": {"type": "log", "rangeMin": 20}, "legend": {"title": "Area Size (Sum of Measure)", "symbolOffset": 10, "orient": "right", "offset": 100}},
+        "size": {"aggregate": "sum", "field": "measureCount", "scale": {"type": "log", "rangeMin": 20}, "legend": {"title": "Node Size (Sum of Measure)", "symbolOffset": 10, "orient": "right", "offset": 100}},
         "tooltip": [
           {"field": "disc_name", "type": "nominal", "title": "Discipline"},
           {"field": "subd_name", "type": "nominal", "title": "Subdiscipline"},
-          {"field": "measure", "type": "nominal", "title": "Measure"},
-          {"aggregate": "sum", "field": "measureCount", "format": ",", "title": "Sum of Measure"}
+          {"field": "measure", "type": "nominal", "title": "Node Measure"},
+          {"aggregate": "sum", "field": "measureCount", "format": ",", "title": "Sum of Node Measure"}
         ]
       }
     },
