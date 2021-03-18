@@ -142,7 +142,7 @@
       }
     },
     {
-      "mark": {"type": "rule", "color": "#00ff00", "strokeOpacity": 0.4},
+      "mark": {"type": "rule","strokeOpacity": 0.4},
       "data": {"name": "edges"},
       "transform": [
         {"filter": {"selection": "edgeMeasure"}},
@@ -180,6 +180,7 @@
         },
         "x2": {"field": "x2", "type": "quantitative"},
         "y2": {"field": "y2", "type": "quantitative"},
+        "color": {"field": "edgeMeasure", "type": "nominal", "scale": {"domain": ["# Citations", "# References"], "range": ["#00dd00", "#555555"]}, "legend": null},
         "strokeWidth": {"aggregate": "sum", "field": "weight", "scale": {"type": "log", "rangeMin": 1, "rangeMax": 20}, "legend": null},
         "tooltip": [
           {"field": "subd_name", "type": "nominal", "title": "Source Subdiscipline"},
