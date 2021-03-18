@@ -184,8 +184,8 @@
         "tooltip": [
           {"field": "subd_name", "type": "nominal", "title": "Source Subdiscipline"},
           {"field": "subd2_name", "type": "nominal", "title": "Target Subdiscipline"},
-          {"field": "edgeMeasure", "type": "nominal", "title": "Measure"},
-          {"aggregate": "sum", "field": "weight", "format": ",", "title": "Sum of Measure"}
+          {"field": "edgeMeasure", "type": "nominal", "title": "Edge Measure"},
+          {"aggregate": "sum", "field": "weight", "format": ",", "title": "Sum of Edge Measure"}
         ]
       }
     },
