@@ -4,7 +4,7 @@
   "autosize": {"type": "fit", "resize": true, "contains": "padding"},
   "padding": 8,
   "width": 1200,
-  "height": 800,
+  "height": 600,
   "config": {"view": {"strokeOpacity": 0}},
   "resolve": {"scale": {"opacity": "independent"}},
   "layer": [
@@ -21,23 +21,7 @@
         }
       },
       "encoding": {
-        "opacity": {"field": "measure", "type": "ordinal", "legend": {"title": "Node Measure", "orient": "left", "symbolSize": 0}}
-      }
-    },
-    {
-      "mark": "text",
-      "data": {"name": "edges"},
-      "selection": {
-        "edgeMeasure": {
-          "type": "single",
-          "fields": ["edgeMeasure"],
-          "bind": "legend",
-          "init": {"edgeMeasure": "# Citations"},
-          "empty": "none"
-        }
-      },
-      "encoding": {
-        "opacity": {"field": "edgeMeasure", "type": "ordinal", "legend": {"title": "Edge Measure", "orient": "left", "symbolSize": 0}}
+        "opacity": {"field": "measure", "type": "ordinal", "legend": {"title": "Measure", "orient": "left", "symbolSize": 0}}
       }
     },
     {
@@ -56,24 +40,6 @@
       },
       "encoding": {
         "opacity": {"field": "year", "type": "ordinal", "sort": "descending", "legend": {"title": "Year", "orient": "left", "symbolSize": 0}}
-      }
-    },
-    {
-      "mark": "text",
-      "data": {"name": "edges"},
-      "transform": [
-        {"filter": {"selection": "edgeMeasure"}}
-      ],
-      "selection": {
-        "edgeYear": {
-          "type": "multi",
-          "fields": ["edgeYear"],
-          "bind": "legend",
-          "empty": "all"
-        }
-      },
-      "encoding": {
-        "opacity": {"field": "edgeYear", "type": "ordinal", "sort": "descending", "legend": {"title": "Edge Year", "orient": "left", "symbolSize": 0}}
       }
     },
     {
@@ -119,17 +85,15 @@
       }
     },
     {
-      "mark": {"type": "rule", "color": "#bbbbbb", "strokeOpacity": 0.50},
-      "data": {"name": "edges"},
+      "mark": {"type": "rule", "color": "#9b9b9b", "strokeOpacity": 0.25},
+      "data": {"name": "subdisciplineEdges"},
       "transform": [
-        {"filter": {"selection": "edgeMeasure"}},
-        {"filter": {"selection": "edgeYear"}},
         {
           "lookup": "subd_id1",
           "from": {
             "data": {"name": "subdisciplines"},
             "key": "subd_id",
-            "fields": ["x", "y", "subd_name"]
+            "fields": ["x", "y", "weight"]
           }
         },
         {
@@ -137,9 +101,9 @@
           "from": {
             "data": {"name": "subdisciplines"},
             "key": "subd_id",
-            "fields": ["x", "y", "subd_name"]
+            "fields": ["x", "y"]
           },
-          "as": ["x2", "y2", "subd2_name"]
+          "as": ["x2", "y2"]
         }
       ],
       "encoding": {
@@ -157,13 +121,11 @@
         },
         "x2": {"field": "x2", "type": "quantitative"},
         "y2": {"field": "y2", "type": "quantitative"},
-        "strokeWidth": {"aggregate": "sum", "field": "weight", "scale": {"type": "log", "rangeMin": 1, "rangeMax": 20}, "legend": null},
-        "tooltip": [
-          {"field": "subd_name", "type": "nominal", "title": "Source Subdiscipline"},
-          {"field": "subd2_name", "type": "nominal", "title": "Target Subdiscipline"},
-          {"field": "edgeMeasure", "type": "nominal", "title": "Measure"},
-          {"aggregate": "sum", "field": "weight", "format": ",", "title": "Sum of Measure"}
-        ]
+        "strokeWidth": {
+          "field": "weight",
+          "type": "quantitative",
+          "scale": null
+        }
       }
     },
     {
@@ -251,7 +213,6 @@
   ],
   "datasets": {
     "nodes": [],
-    "edges": [],
     "disciplines": [
       {
         "disc_name": "Biology",
