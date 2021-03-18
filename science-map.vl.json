@@ -6,7 +6,7 @@
   "width": 1200,
   "height": 800,
   "config": {"view": {"strokeOpacity": 0}},
-  "resolve": {"scale": {"opacity": "independent"}},
+  "resolve": {"scale": {"opacity": "independent", "size": "independent"}},
   "layer": [
     {
       "mark": "text",
@@ -119,7 +119,46 @@
       }
     },
     {
-      "mark": {"type": "rule", "color": "#bbbbbb", "strokeOpacity": 0.50},
+      "mark": {"type": "rule", "color": "#9b9b9b", "strokeOpacity": 0.12, "strokeWidth": 1},
+      "data": {"name": "subdisciplineEdges"},
+      "transform": [
+        {
+          "lookup": "subd_id1",
+          "from": {
+            "data": {"name": "subdisciplines"},
+            "key": "subd_id",
+            "fields": ["x", "y", "subd_name"]
+          }
+        },
+        {
+          "lookup": "subd_id2",
+          "from": {
+            "data": {"name": "subdisciplines"},
+            "key": "subd_id",
+            "fields": ["x", "y", "subd_name"]
+          },
+          "as": ["x2", "y2", "subd2_name"]
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {"domain": [100, 500]},
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {"domain": [0, 275]},
+          "axis": null
+        },
+        "x2": {"field": "x2", "type": "quantitative"},
+        "y2": {"field": "y2", "type": "quantitative"}
+      }
+    },
+    {
+      "mark": {"type": "rule", "color": "#00ff00", "strokeOpacity": 0.4},
       "data": {"name": "edges"},
       "transform": [
         {"filter": {"selection": "edgeMeasure"}},
@@ -163,6 +202,48 @@
           {"field": "subd2_name", "type": "nominal", "title": "Target Subdiscipline"},
           {"field": "edgeMeasure", "type": "nominal", "title": "Measure"},
           {"aggregate": "sum", "field": "weight", "format": ",", "title": "Sum of Measure"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "shape": "circle",
+        "size": 16,
+        "strokeOpacity": 0,
+        "strokeWidth": 0.5,
+        "stroke": "#000007",
+        "fillOpacity": 0.65
+      },
+      "data": {"name": "subdisciplines"},
+      "transform": [
+        {
+          "lookup": "disc_id",
+          "from": {
+            "data": {"name": "disciplines"},
+            "key": "disc_id",
+            "fields": ["disc_name", "color"]
+          },
+          "as": ["disc_name", "disc_color"]
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative",
+          "scale": {"domain": [100, 500]},
+          "axis": null
+        },
+        "y": {
+          "field": "y",
+          "type": "quantitative",
+          "scale": {"domain": [0, 275]},
+          "axis": null
+        },
+        "fill": {"field": "disc_name", "type": "nominal"},
+        "tooltip": [
+          {"field": "disc_name", "type": "nominal", "title": "Discipline"},
+          {"field": "subd_name", "type": "nominal", "title": "Subdiscipline"}
         ]
       }
     },
