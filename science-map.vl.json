@@ -200,6 +200,11 @@
         "stroke": "#000007",
         "fillOpacity": 0.65
       },
+      "selection": {
+        "grid": {
+          "type": "interval", "bind": "scales"
+        }
+      },
       "data": {"name": "subdisciplines"},
       "transform": [
         {

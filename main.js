@@ -24,7 +24,7 @@ function updateData() {
       spec.datasets.nodes = nodes;
       spec.datasets.edges = edges;
       document.getElementById('visualization').innerHTML = '';
-      return vegaEmbed("#visualization", spec, { "renderer": "svg", "actions": true });
+      return vegaEmbed("#visualization", spec, { "renderer": "png", "actions": true });
     }).then((results) => {
       finalize = results.finalize;
       sourceSelector.disabled = false;
