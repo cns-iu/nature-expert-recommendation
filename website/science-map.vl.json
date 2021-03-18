@@ -190,7 +190,7 @@
             "symbolOffset": 5,
             "orient": "right",
             "offset": 5
-          }
+          },
         "tooltip": [
           {"field": "subd_name", "type": "nominal", "title": "Source Subdiscipline"},
           {"field": "subd2_name", "type": "nominal", "title": "Target Subdiscipline"},
