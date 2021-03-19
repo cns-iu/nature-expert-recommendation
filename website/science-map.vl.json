@@ -192,6 +192,7 @@
             "orient": "right",
             "symbolType": "stroke",
             "symbolSize": 1200,
+            "clipHeight": 20,
             "rowPadding": 0,
             "offset": 0
           }
