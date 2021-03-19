@@ -13,7 +13,7 @@ then
 fi
 
 if [ -f "$1" ]; then
-  python $THIS/edges2nwb.py $1 ${1}.nwb
+  python3 $THIS/edges2nwb.py $1 ${1}.nwb
   java -cp $JCP PathfinderNetworkScaling ${1}.nwb ${2}.nwb
-  python $THIS/nwb2edges.py ${2}.nwb $2
+  python3 $THIS/nwb2edges.py ${2}.nwb $2
 fi
