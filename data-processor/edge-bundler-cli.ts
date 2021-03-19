@@ -68,13 +68,15 @@ function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, s
     for (const source of Object.keys(edgeCounts[year])) {
       for (const target of Object.keys(edgeCounts[year][source])) {
         const count = edgeCounts[year][source][target];
-        edges.push({
-          subd_id1: parseInt(source, 10),
-          subd_id2: parseInt(target, 10),
-          edgeMeasure: measure,
-          weight: parseFloat(count.toFixed(2)),
-          edgeYear: parseInt(year, 10)
-        });
+        if (count > 0.25) {
+          edges.push({
+            subd_id1: parseInt(source, 10),
+            subd_id2: parseInt(target, 10),
+            edgeMeasure: measure,
+            weight: parseFloat(count.toFixed(2)),
+            edgeYear: parseInt(year, 10)
+          });
+        }
       }
     }
   }
