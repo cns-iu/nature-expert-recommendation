@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { sync as glob } from 'glob';
-import { set, get } from 'lodash';
+import { get, set, sortBy } from 'lodash';
 import { parse } from 'papaparse';
 import { journalIdSubdLookup } from '@dvl-fw/science-map';
 
@@ -26,8 +26,33 @@ function getSubdiscipline(journalId: string): number {
   return subdisciplineId;
 }
 
+function getSubdisciplines(journalId: string): {subd_id: number, weight: number}[] {
+  return journalIdSubdLookup.get(journalId) || [];
+}
+
 function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, sourceField: string, targetField: string, yearField: string): Edge[] {
   const edgeCounts: any = {};
+  for (const row of readCSV(inputFile)) {
+    const assignments = sortBy([
+      ...getSubdisciplines(row[sourceField] as string),
+      ...getSubdisciplines(row[targetField] as string)
+    ], 'subd_id');
+
+    for (let i=0; i < assignments.length; i++) {
+      for (let j=i+1; j < assignments.length; j++) {
+        const source = assignments[i].subd_id;
+        const target = assignments[j].subd_id;
+        const weight = assignments[i].weight + assignments[j].weight;
+
+        const year = parseInt(row[yearField] as string, 10);
+        const key = ['' + year, '' + source, '' + target];
+
+        set(edgeCounts, key, get(edgeCounts, key, 0) + weight);
+      }
+    }
+  }
+
+  /* 
   for (const row of readCSV(inputFile)) {
     const source = getSubdiscipline(row[sourceField] as string);
     const target = getSubdiscipline(row[targetField] as string);
@@ -36,6 +61,7 @@ function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, s
 
     set(edgeCounts, key, get(edgeCounts, key, 0) + 1);
   }
+  */
 
   const edges: Edge[] = [];
   for (const year of Object.keys(edgeCounts)) {
@@ -46,7 +72,7 @@ function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, s
           subd_id1: parseInt(source, 10),
           subd_id2: parseInt(target, 10),
           edgeMeasure: measure,
-          weight: count,
+          weight: parseFloat(count.toFixed(2)),
           edgeYear: parseInt(year, 10)
         });
       }
