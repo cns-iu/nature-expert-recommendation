@@ -148,7 +148,7 @@
         "minimum_weight": {
           "type": "single",
           "fields": ["weight"],
-          "bind": {"input": "range", "name": "Minimum Edge Weight", "min": 0, "max": 100, "step": 0.5},
+          "bind": {"input": "range", "name": "Minimum Edge Weight", "min": 0, "max": 2000, "step": 0.5},
           "init": {"weight": 1}
         }
       },
