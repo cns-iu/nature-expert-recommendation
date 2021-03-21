@@ -54,7 +54,7 @@ function scienceMapCSV(inputFile: string, outputFile: string, issnFields: string
       year: parseInt(year, 10),
       subd_id: parseInt(subdisciplineId, 10),
       measure,
-      measureCount
+      measureCount: parseFloat(measureCount.toFixed(2))
     };
   }).filter(n => !!n.year && n.measureCount > 0);
 
