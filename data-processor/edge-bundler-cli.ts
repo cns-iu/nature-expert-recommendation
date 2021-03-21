@@ -43,34 +43,31 @@ function pfnetSims(data: Edge[]): Edge[] {
   return data.filter((e) => keep.has(`${e.subd_id1}|${e.subd_id2}`));
 }
 
-function getSubdiscipline(journalId: string): number {
-  const weights = journalIdSubdLookup.get(journalId);
-  const subdisciplineId = !weights ? -1 : weights.length === 1 ? weights[0].subd_id : -2;
-  return subdisciplineId;
-}
-
 function getSubdisciplines(journalId: string): {subd_id: number, weight: number}[] {
   return journalIdSubdLookup.get(journalId) || [];
+}
+
+function getSubdiscipline(journalId: string): number {
+  const weights = getSubdisciplines(journalId);
+  switch (weights.length) {
+    case 0: return -1;
+    case 1: return -2;
+    default: return weights[0].subd_id;
+  }
 }
 
 function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, sourceField: string, targetField: string, yearField: string): Edge[] {
   const edgeCounts: any = {};
   for (const row of readCSV(inputFile)) {
-    const assignments = sortBy([
-      ...getSubdisciplines(row[sourceField] as string),
-      ...getSubdisciplines(row[targetField] as string)
-    ], 'subd_id');
+    const sources = getSubdisciplines(row[sourceField] as string);
+    const targets = getSubdisciplines(row[targetField] as string);
+    const year = parseInt(row[yearField] as string, 10);
 
-    for (let i=0; i < assignments.length; i++) {
-      for (let j=i+1; j < assignments.length; j++) {
-        const source = assignments[i].subd_id;
-        const target = assignments[j].subd_id;
-        const weight = assignments[i].weight + assignments[j].weight;
-
-        const year = parseInt(row[yearField] as string, 10);
-        const key = ['' + year, '' + source, '' + target];
-
-        set(edgeCounts, key, get(edgeCounts, key, 0) + weight);
+    for (const source of sources) {
+      for (const target of targets) {
+        const key = ['' + year, '' + Math.min(source.subd_id, target.subd_id),
+                                '' + Math.max(source.subd_id, target.subd_id)];
+        set(edgeCounts, key, get(edgeCounts, key, 0) + source.weight);
       }
     }
   }
@@ -91,15 +88,13 @@ function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, s
     for (const source of Object.keys(edgeCounts[year])) {
       for (const target of Object.keys(edgeCounts[year][source])) {
         const count = edgeCounts[year][source][target];
-        // if (count > 0.25) {
-          edges.push({
-            subd_id1: parseInt(source, 10),
-            subd_id2: parseInt(target, 10),
-            edgeMeasure: measure,
-            weight: parseFloat(count.toFixed(2)),
-            edgeYear: parseInt(year, 10)
-          });
-        // }
+        edges.push({
+          subd_id1: parseInt(source, 10),
+          subd_id2: parseInt(target, 10),
+          edgeMeasure: measure,
+          weight: parseFloat(count.toFixed(2)),
+          edgeYear: parseInt(year, 10)
+        });
       }
     }
   }
