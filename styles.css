@@ -23,6 +23,7 @@ select {
 }
 #visualization {
   display: block;
+  width:1800px;
   height: 1204px;
 }
 .about {
