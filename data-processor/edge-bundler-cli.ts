@@ -59,6 +59,16 @@ function getSubdiscipline(journalId: string): number {
 function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, sourceField: string, targetField: string, yearField: string): Edge[] {
   const edgeCounts: any = {};
   for (const row of readCSV(inputFile)) {
+    const source = parseInt(row[sourceField] as string, 10);
+    const target = parseInt(row[targetField] as string, 10);
+    const year = parseInt(row[yearField] as string, 10);
+    const key = ['' + year, '' + Math.min(source, target), '' + Math.max(source, target)];
+
+    set(edgeCounts, key, get(edgeCounts, key, 0) + 1);
+  }
+
+  /*
+  for (const row of readCSV(inputFile)) {
     const sources = getSubdisciplines(row[sourceField] as string);
     const targets = getSubdisciplines(row[targetField] as string);
     const year = parseInt(row[yearField] as string, 10);
@@ -71,6 +81,7 @@ function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, s
       }
     }
   }
+  */
 
   /* 
   for (const row of readCSV(inputFile)) {
@@ -105,14 +116,22 @@ function edgeBundleCSV(inputFile: string, outputFile: string, measure: string, s
 }
 
 function main() {
-  const files = glob('../raw-data/citations/**/*.csv');
+  const files = glob('../raw-data/citations2/**/*.csv');
 
   let allData: Edge[] = [];
   for (const inputFile of files) {
+    // Old format
     //Citing ID,Citing Venue Name,Citing Venue SciMap ID,Citing Publication Year,
     // Cited ID,Cited Venue Name,Cited Venue SciMap ID,Cited Publication Year
 
-    const sourceBase = inputFile.split('/').slice(-1)[0].replace('_tomap.csv', '');
+    // New format
+    //,Citing ID,Citing Venue Name,Citing Venue SciMap ID,Citing Publication Year,
+    // Cited ID,Cited Venue Name,Cited Venue SciMap ID,Cited Publication Year,
+    // Citing Top Subject ID,Citing Top Subject Weight,Citing Subject IDs,
+    // Cited Top Subject ID,Cited Top Subject Weight,Cited Subject IDs
+
+    const sourceBase = inputFile.split('/').slice(-1)[0]
+      .replace('_tomap.csv', '').replace('_tomap_keywords.csv', '');
     const source = sourceBase.replace(/_/g, ' ').split(' ').slice(-1)[0];
 
     let measure = '# Edges';
@@ -126,7 +145,7 @@ function main() {
     }
     const outputFile = `../website/data/temp-${source}-${measure.slice(2)}.sim`;
     const output = edgeBundleCSV(inputFile, outputFile, measure, 
-      'Citing Venue SciMap ID', 'Cited Venue SciMap ID', year);
+      'Citing Top Subject ID', 'Cited Top Subject ID', year);
     
     allData = allData.concat(output.map(n => Object.assign(n, {src: source})));
   }
