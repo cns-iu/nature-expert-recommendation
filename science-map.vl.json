@@ -200,7 +200,7 @@
         "color": {"field": "edgeMeasure", "type": "nominal", "scale": {"domain": ["# Citations", "# References"], "range": ["#00dd00", "#555555"]}, "legend": null},
         "strokeWidth": {
           "field": "weight",
-          "scale": {"type": "log", "rangeMin": 1, "rangeMax": 20},
+          "scale": {"type": "log", "domain": [1, 10000], "range": [0.5, 20]},
           "legend": {
             "title": "Edge Size (Sum of Measure)",
             "symbolFillColor": "black",
@@ -209,7 +209,7 @@
             "symbolType": "stroke",
             "symbolSize": 1200,
             "clipHeight": 20,
-            "rowPadding": 0,
+            "rowPadding": 2,
             "offset": 0
           }
         },
@@ -312,7 +312,7 @@
         "fillOpacity": {"value": 0.9},
         "stroke": {"value": "#000007" },
         "fill": {"field": "disc_name", "type": "nominal"},
-        "size": {"aggregate": "sum", "field": "measureCount", "scale": {"type": "log", "rangeMin": 20}, "legend": {"title": "Node Size (Sum of Measure)", "symbolOffset": 10, "orient": "right", "offset": 100}},
+        "size": {"aggregate": "sum", "field": "measureCount", "scale": {"type": "log", "domain": [1, 10000], "range": [20, 800]}, "legend": {"title": "Node Size (Sum of Measure)", "symbolOffset": 10, "orient": "right", "offset": 100}},
         "tooltip": [
           {"field": "disc_name", "type": "nominal", "title": "Discipline"},
           {"field": "subd_name", "type": "nominal", "title": "Subdiscipline"},
